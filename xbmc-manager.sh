@@ -2,6 +2,16 @@
 
 export DISPLAY=":0.0"
 
+OWNER=mike
+USER=~mike
+
+cd $USER/scripts/xbmc
+
+if [ ! -f manager.log ]; then
+  touch manager.log
+  chown $OWNER:$OWNER manager.log
+fi
+
 touch manager.log
 
 if [ $(pidof -x xbmc.bin) > /dev/null ]; then
